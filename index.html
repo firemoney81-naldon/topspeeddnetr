@@ -1,23 +1,710 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "초고속 인터넷 가입 비교 서비스",
+          "provider": {
+            "@type": "Organization",
+            "name": "인터넷 비교견적 센터",
+            "url": "https://yourdomain.com",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+82-10-1234-5678",
+              "contactType": "고객 서비스"
+            }
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "대한민국"
+          },
+          "description": "2026년 최신 인터넷 약정기간, 위약금, 현금지원 및 사은품 비교 견적 정보 제공",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "인터넷 상품 목록",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "기가 인터넷 (1Gbps)"
+                },
+                "description": "최대 1Gbps 속도의 기가 인터넷 상품 비교 및 견적 제공"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "인터넷 + TV 결합 상품"
+                },
+                "description": "인터넷과 IPTV 결합 시 할인 혜택 분석 및 최저가 견적 제공"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "SKT/KT/LGU+ 통신사별 비교견적"
+                },
+                "description": "주요 통신 3사의 약정기간별 사은품 및 요금 할인 비교"
+              }
+            ]
+          }
+        }
+        </script>
+
+        <style>
+            /* Google Fonts (Noto Sans KR) for clear readability */
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+            body {
+                font-family: "Noto Sans KR", sans-serif;
+                margin: 0;
+                padding: 0;
+                line-height: 1.8;
+                background-color: #f7f9fc; /* Soft, light blue background */
+                color: #333;
+            }
+
+            header {
+                background-color: #004c8c; /* Deep blue for trust */
+                color: white;
+                padding: 2rem 1rem;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+                opacity: 0.9;
+            }
+
+            nav ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                margin-top: 1rem;
+            }
+
+            nav a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s ease, transform 0.3s ease;
+                padding: 0.5rem 0;
+                position: relative;
+            }
+
+            nav a:hover {
+                color: #ffcc00; /* Warm accent color on hover */
+                transform: translateY(-2px);
+            }
+
+            main {
+                max-width: 1000px;
+                margin: 2rem auto;
+                padding: 0 1rem;
+                background-color: white;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+                border-radius: 12px;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            h1, h2, h3 {
+                color: #004c8c;
+                border-bottom: 2px solid #e0eaf3; /* Soft border for separation */
+                padding-bottom: 0.5rem;
+                margin-top: 2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                margin-top: 1.5rem;
+                color: #0066cc;
+            }
+
+            p {
+                margin-bottom: 1.5rem;
+                color: #555;
+            }
+
+            ul {
+                margin-bottom: 1.5rem;
+                padding-left: 1.5rem;
+                list-style: none; /* Custom list style */
+            }
+
+            ul li {
+                margin-bottom: 0.8rem;
+                line-height: 1.6;
+                padding-left: 1rem;
+                position: relative;
+            }
+
+            ul li::before {
+                content: "•";
+                color: #00a0e9; /* Light blue bullet point */
+                font-weight: bold;
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em;
+            }
+
+            .keyword-tags {
+                margin: 1.5rem 0;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .keyword-tags a {
+                background-color: #e6f7ff; /* Lightest blue background */
+                color: #0066cc;
+                padding: 8px 16px;
+                border-radius: 25px;
+                font-size: 0.9rem;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+                border: 1px solid #cceeff;
+            }
+
+            .keyword-tags a:hover {
+                background-color: #b3d1ff;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 2rem;
+                background-color: #fcfcfc;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            th, td {
+                padding: 1rem;
+                border: 1px solid #e0eaf3;
+                text-align: left;
+                font-size: 0.95rem;
+            }
+
+            th {
+                background-color: #f0f6fa;
+                color: #004c8c;
+                font-weight: 700;
+                border-bottom: 2px solid #cceeff;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: #ff6600; /* Orange accent color */
+                color: white;
+                font-weight: 700;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                text-decoration: none;
+                margin: 1.5rem 0;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
+            }
+
+            .cta-button:hover {
+                background-color: #e65c00;
+                transform: translateY(-3px);
+            }
+
+            .highlight {
+                font-weight: 700;
+                color: #ff6600; /* Orange highlight */
+            }
+
+            .sub-section {
+                margin-top: 1.5rem;
+                padding: 1.5rem;
+                background-color: #fcfcfc;
+                border-radius: 8px;
+                border: 1px solid #e0eaf3;
+            }
+
+            .contact-form {
+                margin-top: 2rem;
+                background-color: #f0f6fa; /* Light blue background for forms */
+                padding: 2rem;
+                border-radius: 10px;
+                box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+            }
+
+            .contact-form label {
+                display: block;
+                font-weight: 600;
+                margin-top: 1rem;
+                margin-bottom: 0.5rem;
+                color: #004c8c;
+            }
+
+            .contact-form input[type="text"],
+            .contact-form input[type="email"],
+            .contact-form select,
+            .contact-form textarea {
+                width: calc(100% - 20px);
+                padding: 10px;
+                border: 1px solid #cceeff;
+                border-radius: 5px;
+                box-sizing: border-box;
+                font-size: 1rem;
+                transition: border-color 0.3s ease;
+            }
+
+            .contact-form input[type="text"]:focus,
+            .contact-form input[type="email"]:focus,
+            .contact-form select:focus,
+            .contact-form textarea:focus {
+                border-color: #0066cc;
+                outline: none;
+            }
+
+            .contact-form .form-group {
+                display: flex;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .contact-form .form-group > div {
+                flex: 1;
+            }
+
+            .contact-form button {
+                background-color: #00a0e9; /* Light blue button */
+                color: white;
+                padding: 1rem 1.5rem;
+                border: none;
+                border-radius: 5px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .contact-form button:hover {
+                background-color: #008cdb;
+            }
+
+            footer {
+                text-align: center;
+                padding: 2rem 1rem;
+                font-size: 0.9rem;
+                color: #777;
+                background-color: #e0eaf3; /* Soft light background for footer */
+                margin-top: 2rem;
+            }
+
+            .accordion dt {
+                font-weight: 700;
+                margin-top: 1rem;
+                cursor: pointer;
+                color: #0066cc;
+                padding: 1rem;
+                background-color: #f0f6fa;
+                border-radius: 8px;
+                transition: background-color 0.3s ease;
+            }
+
+            .accordion dt:hover {
+                background-color: #e6f7ff;
+            }
+
+            .accordion dd {
+                margin-left: 0;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                display: none;
+                background-color: #ffffff;
+                border-left: 3px solid #00a0e9;
+            }
+
+            .accordion dt.active + dd {
+                display: block;
+            }
+            .link-reference {
+                font-size: 0.9rem;
+                color: #777;
+                display: block;
+                margin-top: 0.5rem;
+            }
+
+            /* Image styling for visual appeal */
+            .main-image {
+                width: 100%;
+                height: auto;
+                border-radius: 12px;
+                margin-bottom: 2rem;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            /* 그래프 시각화 (CSS only for demonstration) */
+            .graph-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                margin: 2rem 0;
+            }
+
+            .graph-bar {
+                background-color: #e6f7ff;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            }
+
+            .graph-label {
+                padding: 1rem;
+                font-weight: 500;
+                color: #333;
+                text-align: center;
+            }
+
+            .graph-value {
+                height: 150px; /* Base height */
+                position: relative;
+                overflow: hidden;
+            }
+
+            .graph-inner {
+                background-color: #00a0e9;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                transition: height 0.5s ease;
+            }
+
+            .graph-text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-weight: 700;
+                font-size: 1.2rem;
+                color: white;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Specific graph heights for demonstration based on data */
+            .graph-bar:nth-child(1) .graph-inner { height: 70%; } /* 3년 약정: 70% 할인 효과 */
+            .graph-bar:nth-child(2) .graph-inner { height: 40%; } /* 2년 약정: 40% 할인 효과 */
+            .graph-bar:nth-child(3) .graph-inner { height: 10%; } /* 1년 약정: 10% 할인 효과 */
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>인터넷 약정기간 비교 견적 - 2026년 최신 가이드</h1>
+            <p>인터넷 가입 시 필수 확인 사항! 약정기간, 위약금, 사은품을 현명하게 비교하여 최대 혜택을 받으세요.</p>
+            <nav>
+                <ul>
+                    <li><a href="#main-intro">약정기간이란?</a></li>
+                    <li><a href="#contract-type">기간별 장단점</a></li>
+                    <li><a href="#comparison-factors">할인 및 사은품</a></li>
+                    <li><a href="#comparison-form">견적 비교 신청</a></li>
+                    <li><a href="#faq">자주 묻는 질문</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="main-intro">
+                <!-- Pexels Image Source: https://www.pexels.com/ko-kr/photo/210126/ -->
+                <img src="https://images.pexels.com/photos/210126/pexels-photo-210126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="집에서 노트북을 사용하는 모습으로 인터넷 연결을 상징" class="main-image">
+
+                <h2>인터넷 약정기간, 왜 꼼꼼히 따져봐야 할까요?</h2>
+                <p><strong>인터넷 약정기간</strong>은 인터넷 서비스 가입 시 통신사와 맺는 계약 기간을 의미합니다. 단순히 '인터넷 가입'이라고 생각할 수 있지만, 약정기간은 소비자가 받게 될 할인 혜택, 현금지원, 사은품 규모를 결정하는 핵심 요소입니다. 2026년 현재, 인터넷 시장은 통신사별 경쟁 심화로 인해 다양한 요금제와 혜택을 제공하고 있습니다.</p>
+                <p>많은 소비자들이 <strong>인터넷 약정기간</strong>에 대한 정확한 이해 없이 가입했다가 중도 해지 시 예상치 못한 <span class="highlight">위약금</span>을 부과받거나, 혜택을 충분히 누리지 못하는 경우가 많습니다. 특히 <strong>신규 가입</strong>자는 물론, 기존 고객의 <strong>재약정</strong>이나 <strong>인터넷 변경</strong>을 고려하는 소비자라면 약정기간별 장단점과 통신사별 <strong>현금지원</strong> 수준을 면밀히 비교하는 것이 중요합니다.</p>
+                <p>저희 비교견적 센터는 <span class="highlight">SKT, KT, LGU+</span> 등 주요 통신사의 2026년 최신 상품 정보를 바탕으로 고객님에게 가장 적합한 약정기간과 요금제를 제안해 드립니다. <span class="highlight">서울, 부산, 대구, 인천, 광주, 대전, 울산</span> 등 전국 어디서든 빠르고 정확한 <strong>인터넷 비교견적</strong>을 받아보세요. <strong>인터넷 가입 순위</strong>를 확인하고, <strong>인터넷 싼곳</strong>을 찾는 소비자에게 실질적인 도움을 제공합니다.</p>
+
+                <div class="keyword-tags" aria-label="연관 키워드">
+                    <a href="#comparison-form">인터넷약정기간 비교</a>
+                    <a href="#contract-type">인터넷 위약금 계산법</a>
+                    <a href="#comparison-factors">인터넷 사은품 현금지원</a>
+                    <a href="#contract-type">인터넷 재약정 vs 신규 가입</a>
+                    <a href="#comparison-factors">기가인터넷 가격</a>
+                    <a href="#contract-type">인터넷 약정 해지</a>
+                    <a href="#faq">인터넷가입 혜택</a>
+                    <a href="#main-intro">인터넷 100M/500M/1G 차이</a>
+                </div>
+            </section>
+
+            <section id="contract-type">
+                <h2>인터넷 약정기간별 장단점 분석 (1년, 2년, 3년)</h2>
+                <p><strong>인터넷 약정기간</strong>은 보통 1년, 2년, 3년 중에서 선택할 수 있습니다. <strong>인터넷 가입</strong> 시 가장 중요한 결정 요소인 약정기간 선택에 따라 요금 할인율과 사은품 규모가 달라집니다. 특히 <strong>평균</strong>적인 인터넷 가입자들은 3년 약정을 선호하지만, 개인의 상황에 따라 현명한 선택 기준이 달라집니다.</p>
+
+                <h3>1. 3년 약정: 최대 할인 및 사은품의 장점</h3>
+                <p>가장 일반적이며, 통신사가 가장 많은 혜택을 제공하는 약정기간입니다. <strong>3년 약정</strong>을 선택할 경우 월별 요금 할인이 가장 크고, <strong>현금지원</strong>이나 <strong>상품권</strong> 등 <strong>사은품</strong>을 최대로 받을 수 있습니다. <strong>인터넷 요금</strong> 부담을 줄이는 데 가장 효과적인 방법입니다. 대부분의 인터넷 <strong>전문 업체</strong>에서 <strong>추천</strong>하는 방식입니다.</p>
+                <ul>
+                    <li><strong>장점:</strong> 월 요금 할인율이 높고, <strong>인터넷 가입 혜택</strong> (현금지원, 사은품)이 가장 많습니다.</li>
+                    <li><strong>단점:</strong> 중도 해지 시 <span class="highlight">위약금</span>이 가장 높게 책정됩니다. 특히 이사나 해외 거주 등 변동 사항이 잦은 경우에는 불리할 수 있습니다.</li>
+                    <li><strong>추천 대상:</strong> 장기간 거주 예정인 가정, <strong>인터넷 싼곳</strong>을 찾는 소비자, 높은 <span class="highlight">사은품</span>을 원하는 분.</li>
+                </ul>
+
+                <h3>2. 2년 약정: 합리적인 선택의 균형</h3>
+                <p>3년 약정보다는 할인 혜택이 적지만, 1년 약정보다는 높은 할인을 받을 수 있습니다. <strong>인터넷약정기간</strong> 2년을 선택하는 경우는 3년 거주가 불확실한 <span class="highlight">원룸 또는 오피스텔 거주자</span>나, <strong>내돈내산 후기</strong>를 참고하여 3년 약정이 부담스러운 소비자에게 적합합니다. <strong>인천, 수원, 용인</strong> 등 수도권 지역의 잦은 이사를 고려하는 분들에게도 좋은 선택지가 될 수 있습니다.</p>
+                <ul>
+                    <li><strong>장점:</strong> 3년보다 낮은 위약금 부담, 1년보다 높은 할인율. <strong>가입 순위</strong>는 낮지만 합리적인 선택지입니다.</li>
+                    <li><strong>단점:</strong> 3년 약정에 비해 사은품 규모가 적고, 1년 약정에 비해 위약금이 높습니다.</li>
+                    <li><strong>추천 대상:</strong> 2년 내 이사 계획이 있는 분, 3년 약정의 긴 기간이 부담스러운 분.</li>
+                </ul>
+
+                <h3>3. 1년 약정: 위약금 부담 최소화</h3>
+                <p>단기 거주자나 특정 상황에만 필요한 경우 선택하는 약정기간입니다. <strong>1년 약정</strong>은 월 요금 할인이 거의 없거나, 할인율이 매우 낮습니다. <strong>현금지원</strong>이나 <strong>사은품</strong>도 거의 제공되지 않습니다. <strong>인터넷 가입</strong> 시 <strong>비용</strong> 절감보다는 유연성을 최우선으로 고려할 때 적합합니다.</p>
+                <ul>
+                    <li><strong>장점:</strong> 중도 해지 시 위약금이 가장 낮습니다. <strong>인터넷 약정 해지</strong>에 대한 부담이 적습니다.</li>
+                    <li><strong>단점:</strong> 월 요금 할인이 거의 없으므로, 장기적으로 보면 총 <strong>비용</strong>이 가장 높습니다.</li>
+                    <li><strong>추천 대상:</strong> 단기 거주 예정자 (1년 이내), 유동성이 높은 환경의 소비자.</li>
+                </ul>
+
+                <div class="sub-section">
+                    <h3>약정기간별 할인율 및 혜택 비교표 (2026년 기준)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>약정기간</th>
+                                <th>월 요금 할인율 (상대적)</th>
+                                <th>위약금 부담 수준 (상대적)</th>
+                                <th>사은품/현금지원 규모 (상대적)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3년 약정</td>
+                                <td>높음 (최대 할인)</td>
+                                <td>높음</td>
+                                <td>높음 (최대 혜택)</td>
+                            </tr>
+                            <tr>
+                                <td>2년 약정</td>
+                                <td>중간</td>
+                                <td>중간</td>
+                                <td>중간</td>
+                            </tr>
+                            <tr>
+                                <td>1년 약정</td>
+                                <td>낮음 (할인 거의 없음)</td>
+                                <td>낮음 (최소 위약금)</td>
+                                <td>낮음 (사은품 거의 없음)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>위약금 계산 방법 및 주의사항</h3>
+                <p><strong>인터넷 약정기간</strong> 중 해지 시 발생하는 위약금은 통신사별로 산정 방식이 다르지만, 일반적으로 '사용 기간'에 따라 할인 반환금이 발생합니다. <span class="highlight">위약금 = (월정액 할인 금액 × 남은 약정기간) + 설치비 면제 금액</span> 등으로 계산됩니다. <strong>인터넷 위약금 계산</strong> 시 통신사에 따라 공제율이 다르므로 정확한 <strong>금액</strong> 확인이 필요합니다. <strong>신규 가입</strong> 시 <strong>위약금</strong> 조항을 꼼꼼히 확인하여 <strong>인터넷약정기간</strong> 만료 전에 해지하는 불상사를 방지해야 합니다.</p>
+            </section>
+
+            <section id="comparison-factors">
+                <h2>인터넷 요금 절약의 핵심: 사은품, 현금지원, 결합 할인 분석</h2>
+                <p><strong>인터넷약정기간</strong>을 선택하는 이유 중 하나는 바로 <strong>사은품</strong> 및 <span class="highlight">현금지원</span> 혜택입니다. 통신사들은 신규 고객 유치를 위해 <strong>인터넷 가입 사은품</strong>을 경쟁적으로 제공합니다. 2026년 기준으로 <strong>평균</strong>적인 사은품 <strong>금액</strong>이 상승하는 추세이며, 이를 잘 활용하면 실질적인 <strong>인터넷 가입 혜택</strong>을 크게 높일 수 있습니다.</p>
+
+                <h3>1. 현금지원 vs. 상품권: 어떤 혜택이 좋을까?</h3>
+                <p>인터넷 가입 시 제공되는 혜택은 크게 <span class="highlight">현금지원</span>과 <span class="highlight">상품권</span>으로 나뉩니다. <strong>현금지원</strong>은 현금으로 직접 지급되어 활용도가 높으며, <strong>인터넷 싼곳</strong>을 찾는 소비자에게 가장 인기가 많습니다. 반면, <strong>상품권</strong>은 제휴처에서 사용할 수 있는 쿠폰 형태로 지급되지만, 현금지원보다 <strong>금액</strong>이 더 높게 책정되는 경우가 있습니다. <strong>인터넷 가입 순위</strong>가 높은 업체들은 두 가지 옵션을 모두 제공하여 소비자가 선택할 수 있도록 합니다.</p>
+                <ul>
+                    <li><strong>현금지원 장점:</strong> 즉시 현금화 가능, 제한 없이 사용 가능.</li>
+                    <li><strong>상품권 장점:</strong> 현금지원보다 더 높은 <strong>지원금</strong>을 받을 수 있는 경우 있음.</li>
+                </ul>
+                <p><strong>Tip:</strong> <strong>인터넷 약정기간</strong>이 길수록 현금지원/사은품 <strong>금액</strong>이 높아집니다. <strong>인터넷 전문 업체</strong>에서는 가입 신청 당일 현금지원이 가능한 곳도 있으니 <strong>비교</strong> 시 참고하세요.</p>
+
+                <h3>2. 통신사 결합 할인: 휴대폰 요금 절약의 비법</h3>
+                <p><strong>인터넷 약정기간</strong>을 선택할 때 가장 중요한 <strong>할인 혜택</strong>은 바로 휴대폰 결합 할인입니다. <span class="highlight">SKT, KT, LGU+</span> 통신 3사는 자사의 인터넷과 모바일 요금제를 결합하여 할인해주는 상품을 제공합니다. <strong>신규 가입</strong> 시 가족 구성원의 휴대폰 요금까지 합산하여 <strong>월평균</strong> 수만 원의 통신비 절약이 가능합니다.</p>
+                <ul>
+                    <li><strong>SKT:</strong> 온가족 할인, 온가족 플랜.</li>
+                    <li><strong>KT:</strong> 총액 결합 할인, 프리미엄 가족 결합.</li>
+                    <li><strong>LGU+:</strong> 참 쉬운 가족 결합, 한방에 Yo.</li>
+                </ul>
+                <p>만약 가족 구성원이 여러 명이라면 결합 할인을 통해 <strong>인터넷 요금</strong> 자체를 <strong>저렴한곳</strong>으로 바꾸는 것보다 더 큰 혜택을 볼 수 있습니다. <strong>인터넷 가입</strong> 시 가족 구성원의 통신사 이용 현황을 꼼꼼히 체크하여 <strong>인터넷약정기간</strong> 만료 시점에 맞춰 결합 상품을 변경하는 것이 좋습니다.</p>
+
+                <h3>3. 인터넷 속도 선택: 100M vs. 500M vs. 1Gbps</h3>
+                <p><strong>인터넷약정기간</strong>과 함께 <strong>인터넷 속도</strong>(100Mbps, 500Mbps, 1Gbps) 선택도 중요합니다. <strong>인터넷 속도</strong>에 따라 월 요금이 달라지며, <strong>인터넷 비용</strong>을 결정하는 중요한 요소입니다. <strong>평균</strong>적인 사용자의 경우 100Mbps도 충분하지만, 4K/8K 동영상 스트리밍, 대용량 파일 다운로드, 온라인 게임 등을 즐긴다면 500Mbps 이상을 <strong>추천</strong>합니다.</p>
+                <ul>
+                    <li><strong>100Mbps:</strong> 일반적인 웹 서핑, 간단한 동영상 시청에 적합. <strong>가격</strong>이 가장 저렴합니다.</li>
+                    <li><strong>500Mbps:</strong> 4K 스트리밍, 잦은 대용량 파일 다운로드에 적합. <strong>기가인터넷 가격</strong>보다 저렴하면서 빠른 속도를 제공합니다.</li>
+                    <li><strong>1Gbps (기가 인터넷):</strong> 고화질 스트리밍, 다수의 장치 연결, 온라인 게임 등 헤비 유저에게 적합.</li>
+                </ul>
+
+                <div class="sub-section">
+                    <h3>인터넷 속도별 적합한 사용 환경 (2026년)</h3>
+                    <div class="graph-container">
+                        <div class="graph-bar">
+                            <div class="graph-label">100Mbps</div>
+                            <div class="graph-value">
+                                <div class="graph-inner" style="height: 30%;"></div>
+                                <div class="graph-text">웹서핑/단순 스트리밍</div>
+                            </div>
+                        </div>
+                        <div class="graph-bar">
+                            <div class="graph-label">500Mbps</div>
+                            <div class="graph-value">
+                                <div class="graph-inner" style="height: 60%;"></div>
+                                <div class="graph-text">4K/온라인 게임</div>
+                            </div>
+                        </div>
+                        <div class="graph-bar">
+                            <div class="graph-label">1Gbps</div>
+                            <div class="graph-value">
+                                <div class="graph-inner" style="height: 90%;"></div>
+                                <div class="graph-text">헤비 유저/다중 연결</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>AI</strong> 기술을 활용한 <strong>인터넷 비교견적</strong> 서비스를 통해 고객님의 사용 환경에 맞는 최적의 속도를 <strong>추천</strong>받을 수 있습니다.</p>
+                </div>
+            </section>
+
+            <section id="comparison-form">
+                <h2>전국 인터넷 약정기간 비교 견적 신청</h2>
+                <p><strong>인터넷약정기간</strong> 만료를 앞두고 있거나 <strong>신규 가입</strong>을 원하는 분들은 지금 바로 <strong>무료 견적</strong>을 신청하세요. <strong>인터넷 비교견적</strong>을 통해 <strong>현금지원</strong>, <strong>사은품</strong>, <strong>할인 혜택</strong>을 최대로 받을 수 있는 상품을 찾아드립니다. <strong>인터넷 가입 순위</strong> 높은 <strong>전문 업체</strong>의 <strong>견적</strong>을 <strong>비교</strong>하고 <strong>저렴한곳</strong>을 선택할 수 있습니다.</p>
+
+                <div class="contact-form">
+                    <form action="#" method="post">
+                        <h3>인터넷 가입 조건 입력</h3>
+                        <div class="form-group">
+                            <div>
+                                <label for="provider">희망 통신사 선택</label>
+                                <select id="provider" name="provider" required>
+                                    <option value="">통신사를 선택하세요</option>
+                                    <option value="SKT">SKT</option>
+                                    <option value="KT">KT</option>
+                                    <option value="LGU+">LGU+</option>
+                                    <option value="ALL">전체 비교</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="contract_period">희망 약정기간</label>
+                                <select id="contract_period" name="contract_period" required>
+                                    <option value="">약정기간을 선택하세요</option>
+                                    <option value="3years">3년 (최대 사은품/할인)</option>
+                                    <option value="2years">2년 (합리적인 위약금)</option>
+                                    <option value="1year">1년 (위약금 최소화)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <label for="internet_speed">희망 인터넷 속도</label>
+                                <select id="internet_speed" name="internet_speed" required>
+                                    <option value="">속도를 선택하세요</option>
+                                    <option value="100Mbps">100Mbps</option>
+                                    <option value="500Mbps">500Mbps</option>
+                                    <option value="1Gbps">1Gbps (기가 인터넷)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="service_type">결합 상품 여부</label>
+                                <select id="service_type" name="service_type" required>
+                                    <option value="">결합 상품을 선택하세요</option>
+                                    <option value="internet_only">인터넷 단독</option>
+                                    <option value="internet_tv">인터넷 + TV</option>
+                                    <option value="internet_mobile">인터넷 + 모바일 결합</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <label for="name">이름</label>
+                                <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+                            </div>
+                            <div>
+                                <label for="contact_phone">연락처</label>
+                                <input type="text" id="contact_phone" name="contact_phone" placeholder="010-XXXX-XXXX" required>
+                            </div>
+                        </div>
+                        <label for="message">추가 문의사항 (예: 이사 예정일, 현재 위약금 조회 등)</label>
+                        <textarea id="message" name="message" rows="3"></textarea>
+
+                        <button type="submit">인터넷 약정기간 무료 견적 신청</button>
+                        <p class="link-reference">본 견적 신청은 실제 가입이 아니며, 상담을 위한 정보 제공에 동의합니다.</p>
+                    </form>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>자주 묻는 질문 (FAQ)</h2>
+                <dl class="accordion">
+                    <dt tabindex="0" aria-expanded="false">Q1: 인터넷 약정기간이 만료되었는데, 재약정이 좋을까요 신규 가입이 좋을까요?</dt>
+                    <dd>A: 일반적으로 <span class="highlight">신규 가입</span>이 <span class="highlight">재약정</span>보다 <strong>현금지원</strong>이나 <strong>사은품 혜택</strong>이 훨씬 큽니다. 재약정 시에는 통신사마다 혜택이 다르지만 신규 가입만큼의 파격적인 <strong>지원금</strong>을 기대하기 어렵습니다. <strong>인터넷 약정기간</strong> 만료 시점에 맞춰 타 통신사로 <strong>신규 가입</strong>을 고려하는 것이 <strong>인터넷 요금</strong> 절약에 유리하며, <strong>인터넷 비교견적</strong>을 통해 <strong>가격</strong>을 <strong>비교</strong>해 보세요. <strong>네이버</strong>, <strong>구글</strong> 등 포털 사이트의 <strong>인터넷 가입 순위</strong>를 확인하면 <strong>전문 업체</strong>의 <strong>추천</strong> 상품을 알 수 있습니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false">Q2: 이사 시 인터넷 약정기간이 남아있는데, 위약금을 내야 하나요?</dt>
+                    <dd>A: 이사로 인해 서비스 이용이 불가능한 지역으로 거주지를 옮기는 경우, <strong>인터넷 약정기간</strong>이 남아있어도 위약금 없이 해지할 수 있습니다. 다만, 이사 시에도 기존 통신사의 인터넷 서비스 이용이 가능한 지역이라면 위약금이 발생합니다. 이 경우에는 기존 <strong>인터넷 약정기간</strong>을 유지하며 이전을 하거나, 위약금을 내고 타 통신사로 <strong>신규 가입</strong>하는 방안을 고려해야 합니다. 이사로 인한 해지 시 <strong>위약금</strong> 면제 요건을 충족하는지 통신사에 문의하세요. (참고: [한국소비자원](https://www.kca.go.kr/)에서 관련 분쟁 사례를 확인할 수 있습니다.)</dd>
+
+                    <dt tabindex="0" aria-expanded="false">Q3: 인터넷 사은품 현금지원 금액은 통신사별로 얼마나 차이가 나나요?</dt>
+                    <dd>A: <strong>인터넷 사은품</strong> <strong>현금지원</strong> <strong>금액</strong>은 통신사(SKT, KT, LGU+)와 가입 상품(속도, 결합 여부)에 따라 <strong>평균</strong> 수십만 원의 차이가 발생할 수 있습니다. 특히 <strong>신규 가입</strong>의 경우 <strong>인터넷약정기간</strong> 3년 기준으로 통신사별 <strong>지원금</strong> <strong>차이점</strong>이 두드러집니다. <strong>인터넷 비교견적</strong>을 이용해 <strong>인터넷 싼곳</strong>을 찾는 것이 중요하며, <strong>디시</strong>나 <strong>네이버</strong> 카페 등 <strong>인터넷 가입 후기</strong>를 참고하면 대략적인 <strong>가격</strong> 정보를 알 수 있습니다. <strong>AI</strong> <strong>Gemini</strong>나 <strong>ChatGPT</strong> 등의 도구를 활용해 <strong>인터넷 가입 순위</strong>와 <strong>비교</strong> 정보를 수집하는 것도 좋습니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false">Q4: 인터넷 약정기간 만료 후 해지 신청을 하지 않으면 어떻게 되나요?</dt>
+                    <dd>A: <strong>인터넷 약정기간</strong> 만료 후에도 별도의 해지 신청을 하지 않으면 기존 요금 그대로 자동 연장됩니다. 이 경우 <strong>인터넷약정기간</strong>에 따른 할인 혜택이 사라지거나, 재약정으로 인한 <strong>추천</strong> 할인 혜택을 받지 못하게 됩니다. 통신비 절약을 위해서는 <strong>인터넷약정기간</strong> 만료 전에 반드시 <strong>인터넷 비교견적</strong>을 통해 <strong>재약정</strong> 또는 <strong>신규 가입</strong>을 결정해야 합니다. <strong>인터넷 혜택</strong>은 <strong>신규 가입</strong> 시 가장 크다는 것을 기억하세요. (참고: [과학기술정보통신부](https://www.msit.go.kr/)에서는 통신 요금 정책을 발표하고 있습니다.)</dd>
+
+                    <dt tabindex="0" aria-expanded="false">Q5: 인터넷 가입 시 현금지원 외에 다른 혜택은 없나요?</dt>
+                    <dd>A: <strong>인터넷 가입 혜택</strong>은 <strong>현금지원</strong> 외에도 다양합니다. <strong>신규 가입</strong> 시 통신사별로 <strong>상품권</strong>, TV 셋톱박스 무료 설치, AI 스피커 증정 등의 <strong>이벤트</strong>를 진행하기도 합니다. 특히 <span class="highlight">인터넷 + TV 결합 상품</span>을 <strong>신규 가입</strong>하면 <strong>인터넷약정기간</strong> 동안 월 요금 할인이 추가로 적용되며, <strong>가격</strong> 대비 만족도가 높습니다. <strong>인터넷 전문 업체</strong>에서 제공하는 <strong>비교견적</strong>을 통해 <strong>저렴한곳</strong>을 찾고, <strong>내돈내산 후기</strong>를 참고하여 <strong>추천</strong> 상품을 확인하세요. (참고: [공정거래위원회](https://www.ftc.go.kr/)에서 통신사 사은품 관련 불공정 행위를 규제합니다.)</dd>
+
+                    <dt tabindex="0" aria-expanded="false">Q6: 서울 강남 지역과 지방의 인터넷 가입 혜택 차이가 있나요?</dt>
+                    <dd>A: <strong>인터넷약정기간</strong>에 따른 기본적인 <strong>할인 혜택</strong>은 전국적으로 동일하게 적용됩니다. 다만, 일부 <strong>전문 업체</strong>에서 <strong>이벤트</strong>성으로 특정 지역(예: <span class="highlight">서울 강남, 부산 해운대, 경기 수원</span> 등)의 <strong>인터넷 가입</strong>에 대해 추가적인 <strong>현금지원</strong>이나 사은품을 제공하는 경우가 있습니다. <strong>지역별</strong> <strong>인터넷 싼곳</strong>을 찾는 소비자라면 <strong>인터넷 비교견적</strong> 시 거주 지역을 정확히 명시하여 <strong>최신 혜택</strong>을 확인해 보세요. <strong>전국 지역명 키워드</strong>(서울, 경기, 인천, 대구, 대전, 광주, 울산, 세종, 강원, 충청, 전북, 전남, 경북, 경남, 제주 등)를 활용하여 <strong>네이버</strong>, <strong>구글</strong> 검색을 통해 지역별 <strong>전문 업체</strong>를 찾아볼 수 있습니다.</dd>
+                </dl>
+            </section>
+
+            <section id="additional-content">
+                <h2>인터넷 약정기간 선택 시 2026년도 심화 분석: 통신사별 차이점 및 결합 상품 전략</h2>
+                <p><strong>인터넷 약정기간</strong>은 단순히 기간을 정하는 것을 넘어, 통신사별 <strong>차이점</strong>과 <span class="highlight">결합 상품</span> 전략에 따라 총 지출 <strong>비용</strong>이 크게 달라집니다. 특히 <strong>신규 가입</strong>을 고려하는 소비자라면 <strong>인터넷 비교견적</strong> 시 통신사별 주력 상품과 <strong>인터넷 가입 혜택</strong>을 꼼꼼히 따져봐야 합니다. 2026년 통신 시장 동향을 반영한 심화 분석을 제공합니다.</p>
+
+                <h3>1. 통신사별 특징: SKT, KT, LGU+ 약정 혜택 비교</h3>
+                <p>주요 통신 3사는 각기 다른 강점을 가지고 있습니다. <span class="highlight">KT</span>는 전국망 커버리지가 우수하여 <strong>서울</strong>, <strong>부산</strong>, <strong>대구</strong> 등 대도시뿐 아니라 <span class="highlight">산간벽지</span>까지 안정적인 서비스 품질을 제공한다는 장점이 있습니다. 반면 <span class="highlight">SKT</span>와 <span class="highlight">LGU+</span>는 모바일 결합 상품을 통한 <strong>할인 혜택</strong>이 강력하여, 가족 구성원 전체가 같은 통신사를 이용할 경우 <strong>인터넷 비용</strong>을 크게 절감할 수 있습니다.</p>
+                <p><strong>인터넷약정기간</strong> 만료 시점에 맞춰 <strong>전문 업체</strong>를 통해 <strong>신규 가입</strong>을 <strong>추천</strong>하는 이유는 통신사별로 <strong>현금지원</strong> 규모가 다르기 때문입니다. <strong>인터넷 가입 순위</strong>는 통신사의 서비스 품질과 <strong>가격</strong> 경쟁력에 따라 달라지므로, <strong>인터넷 비교견적</strong>을 통해 고객님의 지역별, 사용 패턴별 <strong>차이점</strong>을 파악해야 합니다.</p>
+
+                <h3>2. 인터넷 + TV 결합 상품, 스마트홈 시대의 선택</h3>
+                <p>2026년은 스마트홈 환경 구축이 일반화되면서 <strong>인터넷</strong>과 <strong>TV</strong>의 결합 상품 <strong>가입</strong>이 증가하고 있습니다. <strong>인터넷약정기간</strong>을 <strong>3년</strong>으로 설정하고 <span class="highlight">인터넷 + TV 결합 상품</span>을 <strong>신규 가입</strong>할 경우, 단독 상품보다 더 많은 <strong>현금지원</strong>과 <strong>사은품</strong>을 받을 수 있습니다. <strong>내돈내산 후기</strong>를 보면, <strong>인터넷 싼곳</strong>을 찾는 소비자들도 <strong>가격</strong> 대비 만족도가 높아 결합 상품을 <strong>추천</strong>하는 경향이 있습니다.</p>
+                <p>또한, IPTV 서비스에는 <strong>AI</strong> 기능이 탑재되어 음성 명령으로 채널 변경, VOD 검색 등이 가능하며, <strong>ChatGPT</strong>나 <strong>Gemini</strong>와 같은 AI 기술이 결합되어 콘텐츠 추천 서비스가 강화되고 있습니다. <strong>경기 수원, 인천 서구, 부산 해운대</strong> 등 주요 도시에서 <strong>인터넷 가입</strong> 시 <strong>이벤트</strong>를 통해 <strong>AI</strong> 스피커나 가전제품을 사은품으로 제공받을 수 있습니다.</p>
+
+                <h3>3. 위약금 폭탄 피하는 법: 계약서 확인과 꼼꼼한 관리</h3>
+                <p><strong>인터넷 약정기간</strong>이 길수록 <strong>사은품</strong>과 <strong>할인 혜택</strong>은 크지만, 중도 해지 시 <span class="highlight">위약금</span>도 비례하여 증가합니다. <strong>인터넷약정기간</strong>이 3년인 경우 1년차에 해지하면 2년치 이상의 <strong>위약금</strong>이 발생할 수 있습니다. <strong>인터넷 가입</strong> 전 반드시 계약서에 명시된 <strong>위약금 계산</strong> 방법을 확인해야 합니다. <strong>인터넷 싼곳</strong>만 찾다가 <strong>위약금</strong>을 간과하는 실수를 줄여야 합니다. <strong>네이버</strong>, <strong>구글</strong> 검색을 통해 <strong>위약금 계산</strong>기를 이용하거나 <strong>인터넷 전문 업체</strong>에 문의하여 예상 <strong>금액</strong>을 미리 확인해 보는 것이 좋습니다.</p>
+                <p><strong>Tip:</strong> <strong>인터넷약정기간</strong> 만료 3개월 전부터 <strong>인터넷 비교견적</strong>을 알아보는 것이 좋습니다. <strong>인터넷 가입 혜택</strong>은 시기에 따라 달라지므로, 미리 준비하여 최적의 <strong>이벤트</strong>를 놓치지 않도록 하세요. <strong>인터넷약정기간</strong> 만료 후에도 자동으로 연장되는 것을 방지하기 위해 <strong>트위터</strong>나 <strong>인스타그램</strong> 등 개인 SNS에 만료일을 알람 설정하는 <strong>내돈내산 후기</strong>를 참고해 보세요.</p>
+                <p><strong>전국 지역별 가입 가능 지역 키워드:</strong> 서울(강남, 송파, 강동), 경기(수원, 용인, 고양, 성남, 부천, 안산, 화성, 평택, 시흥, 김포), 인천(연수, 남동, 부평), 부산(해운대, 부산진, 동래), 대구(수성, 달서), 광주(북구, 광산), 대전(서구, 유성), 울산(남구, 북구), 세종, 강원(춘천, 원주), 충북(청주, 충주), 충남(천안, 아산), 전북(전주, 군산), 전남(목포, 순천), 경북(포항, 구미), 경남(창원, 김해), 제주.</p>
+
+                <h3>참고 자료 및 외부 링크 (공신력 있는 사이트 5곳)</h3>
+                <ol>
+                    <li><a href="https://www.kca.go.kr/index.do" target="_blank">한국소비자원: 통신 서비스 관련 소비자 분쟁 해결 기준 안내</a></li>
+                    <li><a href="https://www.msit.go.kr/" target="_blank">과학기술정보통신부: 통신 서비스 정책 및 가이드라인</a></li>
+                    <li><a href="https://www.ftc.go.kr/user/index.do" target="_blank">공정거래위원회: 소비자 보호법 및 표시광고법 관련 정보</a></li>
+                    <li><a href="https://www.kto.or.kr/" target="_blank">한국통신사업자연합회 (KTOA): 인터넷 서비스 관련 정보 제공</a></li>
+                    <li><a href="https://namu.wiki/w/%EC%9D%B8%ED%84%B0%EB%84%B7%20%EC%84%9C%EB%B9%84%EC%8A%A4" target="_blank">나무위키: 인터넷 서비스 관련 상세 정보 및 통신사별 특징</a></li>
+                </ol>
+            </section>
+        </main>
+
+        <script>
+            // FAQ 아코디언 기능 (접기/펼치기)
+            document.querySelectorAll('dl.accordion dt').forEach((dt) => {
+                dt.addEventListener('click', () => {
+                    dt.classList.toggle('active');
+                    let expanded = dt.getAttribute('aria-expanded') === 'true';
+                    dt.setAttribute('aria-expanded', !expanded);
+                });
+                dt.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        dt.click();
+                    }
+                });
+            });
+        </script>
+
+      
